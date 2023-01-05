@@ -15,7 +15,8 @@ export default class Login extends React.Component {
         })
     }
 
-    handleLogin = () => {
+    handleLogin = (state) => {
+        let loginIfos = {...state};
         this.setState(() => {
             return {
                 name: "",
@@ -23,6 +24,8 @@ export default class Login extends React.Component {
                 remember: false
             }
         })
+        /* Non ho capito bene cosa fare nell'esercizio ma ho imparato la lezione, abbia pietà XD*/
+        console.log(loginIfos);
     }
 
     render() {
@@ -39,7 +42,7 @@ export default class Login extends React.Component {
                 <br></br>
                 <button
                     disabled={!this.state.name || !this.state.password ? true : false}
-                    onClick={this.handleLogin}
+                    onClick={() => {this.handleLogin(this.state)}}
                 >Login</button>
             </div>
         )
